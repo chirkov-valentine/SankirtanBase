@@ -25,6 +25,13 @@ namespace SankirtanBase.Domain
             set { SetPropertyValue(nameof(Date), ref _date, value); }
         }
 
+        private bool _isArchive;
+        public bool IsArchive
+        {
+            get { return _isArchive; }
+            set { SetPropertyValue(nameof(IsArchive), ref _isArchive, value); }
+        }
+
         private Contractor _contractor;
 
         [Association("Contractor-MoneyCreditOperations")]

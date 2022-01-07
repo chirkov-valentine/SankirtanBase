@@ -18,6 +18,13 @@ namespace SankirtanBase.Domain
             set { SetPropertyValue(nameof(Date), ref _date, value); }
         }
 
+        private bool _isArchive;
+        public bool IsArchive
+        {
+            get { return _isArchive; }
+            set { SetPropertyValue(nameof(IsArchive), ref _isArchive, value); }
+        }
+
         [Association("BookSaleTransaction-BookSaleLineItems")]
         public XPCollection<BookSaleLineItem> BookSaleLineItems
         {
