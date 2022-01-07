@@ -18,22 +18,28 @@ namespace SankirtanBase.Domain
             set { SetPropertyValue(nameof(Date), ref _date, value); }
         }
 
-        private BookDebetOperation _bookDebetOperation;
+        private Contractor _fromContractor;
 
-        [Association("BookDebetOperation-BookMovementTransactions")]
-        public BookDebetOperation BookDebetOperation
+        [Association("FromContractor-BookMovementTransactions")]
+        public Contractor FromContractor
         {
-            get { return _bookDebetOperation; }
-            set { SetPropertyValue(nameof(BookDebetOperation), ref _bookDebetOperation, value); }
+            get { return _fromContractor; }
+            set { SetPropertyValue(nameof(FromContractor), ref _fromContractor, value); }
         }
 
-        private BookCreditOperation _bookCreditOperation;
+        private Contractor _toContractor;
 
-        [Association("BookCreditOperation-BookMovementTransactions")]
-        public BookCreditOperation BookCreditOperation
+        [Association("ToContractor-BookMovementTransactions")]
+        public Contractor ToContractor
         {
-            get { return _bookCreditOperation; }
-            set { SetPropertyValue(nameof(BookCreditOperation), ref _bookCreditOperation, value); }
+            get { return _toContractor; }
+            set { SetPropertyValue(nameof(ToContractor), ref _toContractor, value); }
+        }
+
+        [Association("BookMovementTransaction-BookMovementLineItems")]
+        public XPCollection<BookMovementLineItem> BookSaleLineItems
+        {
+            get { return GetCollection<BookMovementLineItem>(); }
         }
     }
 }

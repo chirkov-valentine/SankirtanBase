@@ -18,13 +18,10 @@ namespace SankirtanBase.Domain
             set { SetPropertyValue(nameof(Date), ref _date, value); }
         }
 
-        private BookDebetOperation _bookDebetOperation;
-
-        [Association("BookDebetOperation-BookSaleTransactions")]
-        public BookDebetOperation BookDebetOperation
+        [Association("BookSaleTransaction-BookSaleLineItems")]
+        public XPCollection<BookSaleLineItem> BookSaleLineItems
         {
-            get { return _bookDebetOperation; }
-            set { SetPropertyValue(nameof(BookDebetOperation), ref _bookDebetOperation, value); }
+            get { return GetCollection<BookSaleLineItem>(); }
         }
 
         private MoneyDebetOperation _moneyDebetOperation;
@@ -34,6 +31,15 @@ namespace SankirtanBase.Domain
         {
             get { return _moneyDebetOperation; }
             set { SetPropertyValue(nameof(MoneyDebetOperation), ref _moneyDebetOperation, value); }
+        }
+
+        private Contractor _contractor;
+
+        [Association("Contractor-BookSaleTransactions")]
+        public Contractor Contractor
+        {
+            get { return _contractor; }
+            set { SetPropertyValue(nameof(Contractor), ref _contractor, value); }
         }
     }
 }

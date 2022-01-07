@@ -48,17 +48,17 @@ namespace SankirtanBase.Domain
             get { return GetCollection<BookBalance>(); }
         }
 
-        [Association("Contractor-BookCreditOperations")]
-        public XPCollection<BookCreditOperation> BookCreditOperations
+        [Association("ToContractor-BookMovementTransactions")]
+        public XPCollection<BookMovementLineItem> BookMovementLineItemsTo
         {
-            get { return GetCollection<BookCreditOperation>(); }
+            get { return GetCollection<BookMovementLineItem>(); }
         }
 
 
-        [Association("Contractor-BookDebetOperations")]
-        public XPCollection<BookDebetOperation> BookDebetOperations
+        [Association("FromContractor-BookMovementTransactions")]
+        public XPCollection<BookMovementLineItem> BookMovementLineItemsFrom
         {
-            get { return GetCollection<BookDebetOperation>(); }
+            get { return GetCollection<BookMovementLineItem>(); }
         }
 
         [Association("Contractor-MoneyCreditOperations")]

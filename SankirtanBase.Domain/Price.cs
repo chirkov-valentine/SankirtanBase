@@ -34,5 +34,11 @@ namespace SankirtanBase.Domain
             get { return _book; }
             set { SetPropertyValue(nameof(Book), ref _book, value); }
         }
+
+        [Association("Price-BookSaleLineItems")]
+        public XPCollection<BookSaleLineItem> BookSaleLineItems
+        {
+            get { return GetCollection<BookSaleLineItem>(); }
+        }
     }
 }
